@@ -1,0 +1,10 @@
+[package]
+name = "rust-backend"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = "0.8.4"
+diesel = "2.2.10"
+dotenvy = "0.15.7"
+tokio = { version = "1.45.0", features = ["full"] }
