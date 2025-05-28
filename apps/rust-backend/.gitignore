@@ -1,0 +1,6 @@
+/target
+**/*.rs.bk
+**/*.log
+**/*.swp
+Cargo.lock  # (if this is a library)
+.DS_Store

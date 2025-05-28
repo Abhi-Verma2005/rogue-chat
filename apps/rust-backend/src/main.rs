@@ -1,8 +1,10 @@
+mod database;
 use axum::{
     routing::{get, post},
     Json,
     Router,
 };
+use dotenvy::dotenv;
 
 struct SignUpPayload {
     username: String,
@@ -10,17 +12,19 @@ struct SignUpPayload {
     email: String
 }
 
+
 #[tokio::main]
 async fn main() {
+
+    dotenv().ok();
+
+    let _connect = database::connect().await;
+
+    println!("Connected to db");
    
     let app = Router::new()
-    .route("/", get(|| async { "Hello, World!" }));
-    .route("/signup", post(|Json(payload): Json<SignUpPayload>| async move {
-        
-    } ));
-
-
-
+        .route("/", get(|| async { "Hello, World!" }));
+    
 
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3001").await.unwrap();
